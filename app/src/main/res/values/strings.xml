@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">epam_internship_android_kalolo</string>
+
+    <!-- name my text -->
+    <string name="name">Hello Epam</string>
+
+
 </resources>
