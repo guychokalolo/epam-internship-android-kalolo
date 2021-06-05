@@ -16,7 +16,6 @@
 
     <!-- my theme text -->
     <style name="text_theme">
-        <item name="android:text">@string/name</item>
         <item name="android:textSize">30sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/purple_100</item>
