@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="Default_Margin">8dp</dimen>
+    <dimen name="default_Margin">8dp</dimen>
     <dimen name="item_margin">10dp</dimen>
     <dimen name="item_top_margin">40dp</dimen>
+    <dimen name="image_button_width">56dp</dimen>
+    <dimen name="image_button_height">46dp</dimen>
+    <dimen name="image_view_width">0dp</dimen>
+    <dimen name="image_view_height">250dp</dimen>
+
 </resources>

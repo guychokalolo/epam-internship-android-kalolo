@@ -38,10 +38,10 @@ class MealListActivity : AppCompatActivity(), OnFoodClickListener {
         myListFood.add(FoodModel("Pizza БРЕЦЕЛЬ И ШПИНАТ", "Сливочный чесночный соус с пармезаном", R.drawable.image_pizza9))
     }
 
-    override fun onFoodItemClicked(position: Int) {
+    override fun onFoodItemClicked(foodModel: FoodModel) {
         startActivity(MealDetailsActivity.getIntent(this,
-                myListFood[position].name,
-                myListFood[position].description,
-                myListFood[position].imageFood))
+                foodModel.name,
+                foodModel.description,
+                foodModel.imageFood))
     }
 }

@@ -8,9 +8,9 @@
 
     <ImageButton
         android:id="@+id/button_back"
-        android:layout_width="57dp"
-        android:layout_height="43dp"
-        android:layout_marginLeft="@dimen/Default_Margin"
+        android:layout_width="@dimen/image_button_width"
+        android:layout_height="@dimen/image_button_height"
+        android:layout_marginLeft="@dimen/default_Margin"
         android:layout_marginTop="@dimen/item_top_margin"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -18,9 +18,9 @@
 
     <ImageView
         android:id="@+id/image_food"
-        android:layout_width="0dp"
-        android:layout_height="251dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="@dimen/image_view_width"
+        android:layout_height="@dimen/image_view_height"
+        android:layout_marginTop="@dimen/item_margin"
         android:adjustViewBounds="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,7 +31,7 @@
         android:id="@+id/name_food"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/Default_Margin"
+        android:layout_marginLeft="@dimen/default_Margin"
         android:layout_marginTop="@dimen/item_top_margin"
         android:text="@string/item_food_name"
         style="@style/SubtitleDetail"
@@ -43,7 +43,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/item_food_description"
-        android:layout_marginTop="@dimen/Default_Margin"
+        android:layout_marginTop="@dimen/default_Margin"
         app:layout_constraintStart_toStartOf="@+id/name_food"
         app:layout_constraintTop_toBottomOf="@+id/name_food" />
 

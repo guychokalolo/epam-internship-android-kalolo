@@ -15,7 +15,7 @@ class ListItemFoodAdapter(private val listFood: List<FoodModel>,
                           private val onFoodClickListener: OnFoodClickListener) : RecyclerView.Adapter<ListItemFoodAdapter.ViewHolder>()  {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val foodImage  = view.findViewById<ImageView>(R.id.image_item)
+        val foodImage: ImageView = view.findViewById<ImageView>(R.id.image_item)
         val item_name : TextView? = view.findViewById(R.id.item_name)
         val item_description : TextView?= view.findViewById(R.id.item_description)
     }
@@ -39,6 +39,6 @@ class ListItemFoodAdapter(private val listFood: List<FoodModel>,
         holder.item_description?.text = currentFood.description
         holder.foodImage.setImageResource(currentFood.imageFood)
 
-        holder.itemView.setOnClickListener { onFoodClickListener.onFoodItemClicked(position) }
+        holder.itemView.setOnClickListener { onFoodClickListener.onFoodItemClicked(currentFood) }
     }
 }
