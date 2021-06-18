@@ -1,8 +1,10 @@
 <resources>
     <string name="app_name">epam_internship_android_kalolo</string>
 
-    <!-- name my text -->
-    <string name="epam_hello">Hello Epam</string>
+    <!-- Detail and List food customize -->
+    <string name="detail_page_title">List item food</string>
+    <string name="item_food_name">Name food </string>
+    <string name="item_food_description">Description food </string>
 
 
 </resources>

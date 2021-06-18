@@ -8,6 +8,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <!-- my color text-->
-    <color name="purple_100">#384487</color>
+
+    <!-- My colors -->
+    <color name="darkGray">#202122</color>
+    <color name="lightGray">#989CA0</color>
+
 </resources>
