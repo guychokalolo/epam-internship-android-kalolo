@@ -1,27 +1,37 @@
-package com.guychokalolo.epam_internship_android_kalolo
+package com.guychokalolo.epam_internship_android_kalolo.fragments
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
+import com.guychokalolo.epam_internship_android_kalolo.FoodModel
+import com.guychokalolo.epam_internship_android_kalolo.MainActivity
+import com.guychokalolo.epam_internship_android_kalolo.OnFoodClickListener
+import com.guychokalolo.epam_internship_android_kalolo.R
 import com.guychokalolo.epam_internship_android_kalolo.adapter.FoodItemDecoration
 import com.guychokalolo.epam_internship_android_kalolo.adapter.ListItemFoodAdapter
 
-class MealListActivity : AppCompatActivity(), OnFoodClickListener {
+class MealListFragment : Fragment(), OnFoodClickListener {
 
     private lateinit var listFoodRecyclerView: RecyclerView
     private  var myListFood = arrayListOf<FoodModel>()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_meal_list)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        val view = inflater?.inflate(R.layout.fragment_meal_list, container, false)
 
+        listFoodRecyclerView = view.findViewById(R.id.list_item_food_recyclerview)
+        return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         initRecyclerview(myListFood)
         listFood()
     }
 
     private fun initRecyclerview(list: ArrayList<FoodModel>){
-        listFoodRecyclerView = findViewById(R.id.list_item_food_recyclerview)
         listFoodRecyclerView.adapter = ListItemFoodAdapter(list, this)
         listFoodRecyclerView.addItemDecoration(FoodItemDecoration())
     }
@@ -39,9 +49,10 @@ class MealListActivity : AppCompatActivity(), OnFoodClickListener {
     }
 
     override fun onFoodItemClicked(foodModel: FoodModel) {
-        startActivity(MealDetailsActivity.getIntent(this,
-                foodModel.name,
-                foodModel.description,
-                foodModel.imageFood))
+        requireActivity().supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.fragment_container, MealDetailsFragment.getFragment(foodModel.name, foodModel.description, foodModel.imageFood))
+                .addToBackStack(null)
+                .commit()
     }
 }
