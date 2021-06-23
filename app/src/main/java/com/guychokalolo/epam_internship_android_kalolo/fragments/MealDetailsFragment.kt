@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.guychokalolo.epam_internship_android_kalolo.R
@@ -22,7 +23,7 @@ class MealDetailsFragment : Fragment() {
     private lateinit var descriptionFood: TextView
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater?.inflate(R.layout.fragment_meal_details, container, false)
+        val view = inflater.inflate(R.layout.fragment_meal_details, container, false)
 
         btn = view.findViewById(R.id.button_back)
         imageFood = view.findViewById(R.id.image_food)
@@ -39,24 +40,21 @@ class MealDetailsFragment : Fragment() {
         btn.setOnClickListener{ finish() }
     }
 
+    private fun finish(){
+        requireActivity().supportFragmentManager.popBackStack()
+    }
+
     companion object{
         private const val KEY_NAME = "KEY_NAME"
         private const val KEY_DESCRIPTION = "KEY_DESCRIPTION"
         private const val KEY_IMAGE = "KEY_IMAGE"
         fun getFragment(nameFood : String, descriptionFood: String, imageFood : Int): MealDetailsFragment{
-            val myFragment = MealDetailsFragment()
-            val bundle = Bundle().apply {
-                putString(KEY_NAME, nameFood)
-                putString(KEY_DESCRIPTION, descriptionFood)
-                putInt(KEY_IMAGE, imageFood)
+            return MealDetailsFragment().apply {
+                arguments = bundleOf(KEY_NAME to nameFood,
+                                            KEY_DESCRIPTION to descriptionFood,
+                                            KEY_IMAGE to imageFood)
             }
-            myFragment.arguments = bundle
-
-            return myFragment
         }
+    }
 
-    }
-    private fun finish(){
-        requireActivity().supportFragmentManager.popBackStack()
-    }
 }
