@@ -11,4 +11,15 @@
     <!-- My colors -->
     <color name="darkGray">#202122</color>
     <color name="lightGray">#989CA0</color>
+    <color name="black_dark">#252525</color>
+    <color name="myColor_black">#000000</color>
+    <color name="uniform_70">#F4F1FD</color>
+    <color name="uniform_100">#F5F2FC</color>
+    <color name="tints">#F5F2FC</color>
+    <color name="salmon">#FF7070</color>
+    <color name="colombia_blue">#CFC8EB</color>
+    <color name="Magnolia">#FCFBFF</color>
+    <color name="myColor_white">#FFFFFF</color>
+    <color name="green">#4CAF50</color>
+
 </resources>

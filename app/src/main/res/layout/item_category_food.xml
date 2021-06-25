@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardView_container"
+    android:layout_width="@dimen/item_food_card_dimension"
+    android:layout_height="@dimen/item_food_card_dimension"
+    android:layout_marginLeft="@dimen/default_Margin"
+    android:layout_marginRight="@dimen/item_food_right"
+    app:cardCornerRadius="@dimen/item_food_radius"
+    >
+
+        <ImageView
+            android:id="@+id/item_category_image"
+            android:layout_width="@dimen/item_food_image_dimension"
+            android:layout_height="@dimen/item_food_image_dimension"
+            android:layout_marginTop="@dimen/default_Margin"
+            android:layout_marginLeft="@dimen/default_Margin"
+            app:srcCompat="@drawable/category_pizza1" />
+
+</androidx.cardview.widget.CardView>

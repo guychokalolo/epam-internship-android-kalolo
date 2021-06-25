@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Epam_internship_android_kalolo" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.Epam_internship_android_kalolo" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
@@ -41,4 +41,6 @@
     <style name="Default_TextStyle_Detail" parent="DefaultTextStyle">
         <item name="android:textSize">18sp</item>
     </style>
+
+
 </resources>

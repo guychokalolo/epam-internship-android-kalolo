@@ -33,7 +33,6 @@ class MealListFragment : Fragment(), OnFoodClickListener {
 
     private fun initRecyclerview(list: ArrayList<FoodModel>){
         listFoodRecyclerView.adapter = ListItemFoodAdapter(list, this)
-        listFoodRecyclerView.addItemDecoration(FoodItemDecoration())
     }
 
     private fun listFood(){
