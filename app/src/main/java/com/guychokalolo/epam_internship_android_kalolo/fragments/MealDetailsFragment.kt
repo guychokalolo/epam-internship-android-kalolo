@@ -1,8 +1,5 @@
 package com.guychokalolo.epam_internship_android_kalolo.fragments
 
-import android.content.Context
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,8 +9,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentContainer
-import androidx.fragment.app.FragmentTransaction
 import com.guychokalolo.epam_internship_android_kalolo.R
 
 class MealDetailsFragment : Fragment() {
@@ -24,17 +19,16 @@ class MealDetailsFragment : Fragment() {
     private lateinit var descriptionFood: TextView
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment_meal_details, container, false)
-
-        btn = view.findViewById(R.id.button_back)
-        imageFood = view.findViewById(R.id.image_food)
-        nameFood = view.findViewById(R.id.name_food)
-        descriptionFood = view.findViewById(R.id.description_food)
-        return view
+        return inflater.inflate(R.layout.fragment_meal_details, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        btn = view.findViewById(R.id.button_back)
+        imageFood = view.findViewById(R.id.image_food)
+        nameFood = view.findViewById(R.id.name_food)
+        descriptionFood = view.findViewById(R.id.description_food)
+        // getArguments for MealListFragment
         nameFood.text = arguments?.getString(KEY_NAME)
         descriptionFood.text = arguments?.getString(KEY_DESCRIPTION)
         arguments?.getInt(KEY_IMAGE,0)?.let { imageFood.setImageResource(it) }
