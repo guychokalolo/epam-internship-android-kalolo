@@ -1,23 +1,22 @@
 package com.guychokalolo.epam_internship_android_kalolo.adapter
 
-import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
-import com.guychokalolo.epam_internship_android_kalolo.FoodModel
-import com.guychokalolo.epam_internship_android_kalolo.OnFoodClickListener
+import com.bumptech.glide.Glide
+import com.guychokalolo.epam_internship_android_kalolo.OnMealClickListener
 import com.guychokalolo.epam_internship_android_kalolo.R
-import com.guychokalolo.epam_internship_android_kalolo.fragments.MealDetailsFragment
-import com.guychokalolo.epam_internship_android_kalolo.fragments.MealListFragment
+import com.guychokalolo.epam_internship_android_kalolo.network.foodentity.MealItems
 
-class ListItemFoodAdapter(private val listFood: List<FoodModel>, private val onFoodClickListener: OnFoodClickListener)
-    : RecyclerView.Adapter<ListItemFoodAdapter.ViewHolder>()  {
+class MealListAdapter(private val onMealClickListener: OnMealClickListener)
+    : RecyclerView.Adapter<MealListAdapter.ViewHolder>(){
+
+    var listMeal : MutableList<MealItems> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater
@@ -27,19 +26,26 @@ class ListItemFoodAdapter(private val listFood: List<FoodModel>, private val onF
     }
 
     override fun getItemCount(): Int {
-        return listFood.size
+        return listMeal.size
+
+    }
+
+    fun setMealItem(list : List<MealItems>){
+        this.listMeal.clear()
+        this.listMeal.addAll(list)
+        notifyDataSetChanged()
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val currentFood = listFood[position]
+        val currentFood = listMeal[position]
         holder.bind(currentFood)
-        holder.itemView.setOnClickListener { onFoodClickListener.onFoodItemClicked(currentFood) }
+        holder.itemView.setOnClickListener { onMealClickListener.onFoodItemClicked(currentFood) }
         // customizer corner radius
         if (position == 0){
             holder.container.setBackgroundResource(R.drawable.round_corner_top)
         }
 
-        if (position == listFood.size.minus(1)){
+        if (position == listMeal.size.minus(1)){
             holder.container.setBackgroundResource(R.drawable.round_corner_bottom)
             holder.divider.visibility = View.GONE
         }
@@ -47,15 +53,13 @@ class ListItemFoodAdapter(private val listFood: List<FoodModel>, private val onF
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val foodImage: ImageView = view.findViewById(R.id.image_item)
-        val item_name : TextView? = view.findViewById(R.id.item_name)
-        val item_description : TextView?= view.findViewById(R.id.item_description)
+        val itemTitle : TextView? = view.findViewById(R.id.item_name)
         val container : ConstraintLayout = view.findViewById(R.id.item_food_container)
         val divider : View = view.findViewById(R.id.divider)
 
-        fun bind(model: FoodModel){
-            item_name?.text = model.name
-            item_description?.text = model.description
-            foodImage.setImageResource(model.imageFood)
+        fun bind(meal: MealItems){
+            itemTitle?.text = meal.strMeal
+            Glide.with(itemView.context).load(meal.strMealThumb).into(foodImage)
         }
     }
 }

@@ -1,54 +1,103 @@
 package com.guychokalolo.epam_internship_android_kalolo.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.guychokalolo.epam_internship_android_kalolo.FoodModel
-import com.guychokalolo.epam_internship_android_kalolo.OnFoodClickListener
+import com.guychokalolo.epam_internship_android_kalolo.OnMealClickListener
 import com.guychokalolo.epam_internship_android_kalolo.R
-import com.guychokalolo.epam_internship_android_kalolo.adapter.ListItemFoodAdapter
+import com.guychokalolo.epam_internship_android_kalolo.`interface`.OnItemCategory
+import com.guychokalolo.epam_internship_android_kalolo.adapter.CategoryFoodAdapter
+import com.guychokalolo.epam_internship_android_kalolo.adapter.MealListAdapter
+import com.guychokalolo.epam_internship_android_kalolo.network.foodentity.Category
+import com.guychokalolo.epam_internship_android_kalolo.network.foodentity.CategoryItems
+import com.guychokalolo.epam_internship_android_kalolo.network.foodentity.Meal
+import com.guychokalolo.epam_internship_android_kalolo.network.foodentity.MealItems
+import com.guychokalolo.epam_internship_android_kalolo.network.retrofitclient.FoodApi
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
-class MealListFragment : Fragment(), OnFoodClickListener {
+class MealListFragment : Fragment(), OnMealClickListener{
 
-    private lateinit var listFoodRecyclerView: RecyclerView
-    private  var myListFood = arrayListOf<FoodModel>()
+    val mealListAdapter = MealListAdapter(this)
+    val categoryFoodAdapter = CategoryFoodAdapter()
+    var list = listOf<CategoryItems>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater?.inflate(R.layout.fragment_meal_list, container, false)
+        return inflater.inflate(R.layout.fragment_meal_list, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        listFoodRecyclerView = view.findViewById(R.id.list_item_food_recyclerview)
-        initRecyclerview(myListFood)
-        listFood()
+        val horizontalRecyclerView = view.findViewById<RecyclerView>(R.id.horizontal_recyclerview)
+        horizontalRecyclerView.layoutManager = LinearLayoutManager(view.context, LinearLayoutManager.HORIZONTAL, false)
+        horizontalRecyclerView.adapter = categoryFoodAdapter
+
+        val listFoodRecyclerView = view.findViewById<RecyclerView>(R.id.list_item_food_recyclerview)
+        listFoodRecyclerView.adapter = mealListAdapter
+        mealListAdapter.notifyDataSetChanged()
+        getCategory()
+
+        categoryFoodAdapter.setCategoryName(categoryName)
     }
 
-    private fun initRecyclerview(list: ArrayList<FoodModel>){
-        listFoodRecyclerView.adapter = ListItemFoodAdapter(list, this)
+    private fun getCategory(){
+        FoodApi.retrofitService.getCategoryList().enqueue(object : Callback<Category>{
+            override fun onResponse(call: Call<Category>, response: Response<Category>) {
+
+                Log.e("Category", "Response Category")
+                categoryFoodAdapter.setListImage(response.body()!!.categoryItems)
+                list = response.body()!!.categoryItems
+                getMeal(list[0])
+                categoryFoodAdapter.notifyDataSetChanged()
+            }
+
+            override fun onFailure(call: Call<Category>, t: Throwable) {
+                Toast.makeText(view?.context, t.message, Toast.LENGTH_SHORT).show()
+
+                Log.e("Category", "onFailure")
+            }
+        })
     }
 
-    private fun listFood(){
-        myListFood.add(FoodModel("Pizza МАРГАРИТА", "Томатный пицца-соус, томаты черри", R.drawable.image_pizza1))
-        myListFood.add(FoodModel("Pizza ГРИБНАЯ", "Чесночный соус, нежная ветчина", R.drawable.image_pizza2))
-        myListFood.add(FoodModel("Pizza ЦЫПЛЕНОК РЭНЧ", "Популярный американский соус \"Рэнч\"", R.drawable.image_pizza3))
-        myListFood.add(FoodModel("Pizza 4 СЫРА", "Увеличенная порция сыра моцарелла", R.drawable.image_pizza4))
-        myListFood.add(FoodModel("Pizza СУПРИМ", "Пикантные колбаски пепперони", R.drawable.image_pizza5))
-        myListFood.add(FoodModel("Pizza МЕХИКО", "Кусочки поджаренного куриного филе", R.drawable.image_pizza6))
-        myListFood.add(FoodModel("Pizza ПЕППЕРОНИ", "ОЧЕНЬ много пикантных колбасок пепперони", R.drawable.image_pizza7))
-        myListFood.add(FoodModel("Pizza ВЕГЕТАРИАНСКАЯ", "Сыр моцарелла, сладкий перец", R.drawable.image_pizza8))
-        myListFood.add(FoodModel("Pizza БРЕЦЕЛЬ И ШПИНАТ", "Сливочный чесночный соус с пармезаном", R.drawable.image_pizza9))
+    private val categoryName = object : OnItemCategory {
+        override fun onClickCategory(categoryNameItem: CategoryItems) {
+            getMeal(categoryNameItem)
+        }
     }
 
-    override fun onFoodItemClicked(foodModel: FoodModel) {
+    fun getMeal(categoryName : CategoryItems){
+        val name = categoryName.strCategory
+        FoodApi.retrofitService.getMealList(name).enqueue(object : Callback<Meal> {
+            override fun onResponse(call: Call<Meal>, response: Response<Meal>) {
+                //Log.e("Category", " Name Category : $name")
+
+                mealListAdapter.setMealItem(response.body()!!.mealItems)
+                Log.e("Category", "Response MealListFragment")
+                mealListAdapter.notifyDataSetChanged()
+
+            }
+
+            override fun onFailure(call: Call<Meal>, t: Throwable) {
+                Toast.makeText(view?.context, t.message, Toast.LENGTH_SHORT).show()
+
+            }
+        })
+    }
+
+    override fun onFoodItemClicked(mealItems: MealItems) {
         requireActivity().supportFragmentManager
                 .beginTransaction()
-                .replace(R.id.fragment_container, MealDetailsFragment.getFragment(foodModel.name, foodModel.description, foodModel.imageFood))
+                .replace(R.id.fragment_container, MealDetailsFragment.getFragment(mealItems))
                 .addToBackStack(null)
                 .commit()
     }
+
 
 }

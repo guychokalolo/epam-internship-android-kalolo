@@ -13,6 +13,7 @@
     <color name="lightGray">#989CA0</color>
     <color name="black_dark">#252525</color>
     <color name="myColor_black">#000000</color>
+    <color name="color_subhead">#777777</color>
     <color name="uniform_70">#F4F1FD</color>
     <color name="uniform_100">#F5F2FC</color>
     <color name="tints">#F5F2FC</color>
@@ -20,6 +21,10 @@
     <color name="colombia_blue">#CFC8EB</color>
     <color name="Magnolia">#FCFBFF</color>
     <color name="myColor_white">#FFFFFF</color>
+    <color name="transparent">#00000000</color>
     <color name="green">#4CAF50</color>
+    <color name="myGray_black">#464E60</color>
+    <color name="myGray2_black">#55617B</color>
+
 
 </resources>

@@ -42,5 +42,34 @@
         <item name="android:textSize">18sp</item>
     </style>
 
+    <!-- create the Default title for Detail component and add fonts Roboto. -->
+    <style name="SubheadTitleText">
+        <item name="android:textColor">@color/color_subhead</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+    </style>
+
+    <!-- create the Default title for Detail component and add fonts Roboto. -->
+    <style name="HeadLineTitleText" >
+        <item name="fontFamily">@font/roboto_medium</item>
+        <item name="android:textColor">@color/myColor_black</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:letterSpacing">0.01</item>
+    </style>
+
+    <!-- create the Default title for Detail component and add fonts Roboto. -->
+    <style name="TextCard" parent="SubheadTitleText">
+        <item name="android:textColor">@color/myGray_black</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:letterSpacing">0.02</item>
+    </style>
+
+    <!-- create the Default title for Detail component and add fonts Roboto. -->
+    <style name="Ingredient" parent="SubheadTitleText">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/myGray2_black</item>
+        <item name="android:letterSpacing">0.02</item>
+    </style>
+
 
 </resources>
