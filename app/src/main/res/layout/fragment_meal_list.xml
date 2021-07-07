@@ -6,29 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".fragments.MealListFragment">
 
-    <TextView
-        android:id="@+id/list_item_food"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/detail_page_title"
-        android:layout_marginLeft="@dimen/default_Margin"
-        android:layout_marginTop="@dimen/item_top_margin"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        style="@style/Title_Text_Style"/>
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list_item_food_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="@dimen/default_rev_margin"
         android:layout_marginLeft="@dimen/default_Margin"
         android:layout_marginRight="@dimen/default_Margin"
+        android:layout_marginBottom="@dimen/item_margin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

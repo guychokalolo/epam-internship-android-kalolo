@@ -5,6 +5,7 @@
     <string name="detail_page_title">List item food</string>
     <string name="item_food_name">Name food </string>
     <string name="item_food_description">Description food </string>
+    <string name="settings_menu">menu</string>
 
 
 </resources>
