@@ -7,7 +7,7 @@
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbar"
         android:layout_width="match_parent"
-        android:layout_height="360dp"
+        android:layout_height="@dimen/dimen360"
         android:theme="@style/Theme.AppCompat.NoActionBar">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
@@ -21,7 +21,7 @@
             <ImageView
                 android:id="@+id/imageMeal"
                 android:layout_width="wrap_content"
-                android:layout_height="360dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:scaleType="centerCrop"
                 />
@@ -34,7 +34,7 @@
                 app:layout_collapseMode="pin"/>
 
             <ImageButton
-                android:id="@+id/imageToolbarBack"
+                android:id="@+id/btnBack"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/transparent"
@@ -60,8 +60,8 @@
                 style="@style/SubheadTitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="36dp"
+                android:layout_marginLeft="@dimen/round_corner_top"
+                android:layout_marginTop="@dimen/dimen36"
                 android:text="@string/subhead"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -71,7 +71,7 @@
                 style="@style/HeadLineTitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="@dimen/dimen4"
                 android:text="@string/headLine"
                 app:layout_constraintStart_toStartOf="@+id/subhead"
                 app:layout_constraintTop_toBottomOf="@+id/subhead" />
@@ -80,20 +80,13 @@
                 android:id="@+id/cardView_text1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="2dp"
+                android:layout_marginTop="@dimen/default_Margin"
+                android:layout_marginBottom="@dimen/dimen2"
                 android:backgroundTint="@color/uniform_70"
-                app:cardCornerRadius="8dp"
+                app:cardCornerRadius="@dimen/default_Margin"
                 app:layout_constraintStart_toStartOf="@+id/headline"
                 app:layout_constraintTop_toBottomOf="@+id/headline">
 
-<!--                <TextView-->
-<!--                    android:id="@+id/japanese"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="20dp"-->
-<!--                    android:layout_gravity="center"-->
-<!--                    android:text="@string/japanese"-->
-<!--                    style="@style/TextCard"/>-->
             </androidx.cardview.widget.CardView>
 
 
@@ -102,7 +95,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:background="@color/uniform_70"
-                android:layout_marginTop="26dp"
+                android:layout_marginTop="@dimen/dimen26"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cardView_text1">
 
@@ -111,9 +104,9 @@
                     style="@style/SubheadTitleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginTop="18dp"
-                    android:layout_marginBottom="16dp"
+                    android:layout_marginLeft="@dimen/item_food_radius"
+                    android:layout_marginTop="@dimen/dimen18"
+                    android:layout_marginBottom="@dimen/item_food_radius"
                     android:text="@string/ingredient"
                     app:layout_constraintStart_toStartOf="@+id/cardView_text1"
                     app:layout_constraintTop_toBottomOf="@+id/cardView_text1" />
@@ -123,8 +116,8 @@
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
                  android:text="@string/SubIngredient"
-                 android:layout_marginLeft="16dp"
-                 android:layout_marginBottom="25dp"
+                 android:layout_marginLeft="@dimen/item_food_radius"
+                 android:layout_marginBottom="@dimen/dimen26"
                  style="@style/Ingredient"/>
             </LinearLayout>
 

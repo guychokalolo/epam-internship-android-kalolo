@@ -37,5 +37,4 @@ fun MealDetailList.toMealDetailUIModel() : MealDetailUIModel {
                         .filter { pair -> pair.second.isNotEmpty() }
                         .map{ pair -> pair.first + " " + pair.second }
                         .reduceRight{ pass, gre -> gre.plus("\n").plus(pass)})
-
 }

@@ -7,7 +7,7 @@
     android:layout_width="@dimen/item_food_card_dimension"
     android:layout_height="@dimen/item_food_card_dimension"
     android:layout_marginLeft="@dimen/default_Margin"
-    android:layout_marginRight="@dimen/item_food_right"
+    android:layout_marginRight="@dimen/dimen4"
     app:cardCornerRadius="@dimen/item_food_radius"
     >
 

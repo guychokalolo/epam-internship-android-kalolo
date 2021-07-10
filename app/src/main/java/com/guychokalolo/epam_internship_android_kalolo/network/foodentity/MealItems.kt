@@ -11,5 +11,5 @@ data class MealItems(
         val strMealThumb: String,
 
         @SerializedName("idMeal")
-        val idMeal: Int
+        val idMeal: String
 )
