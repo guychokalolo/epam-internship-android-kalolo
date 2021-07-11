@@ -10,7 +10,7 @@
     <dimen name="round_corner_top">20dp</dimen>
     <dimen name="round_corner_bottom">0dp</dimen>
     <dimen name="item_food_card_dimension">64dp</dimen>
-    <dimen name="item_food_right">4dp</dimen>
+    <dimen name="dimen4">4dp</dimen>
     <dimen name="item_food_radius">16dp</dimen>
     <dimen name="item_food_image_dimension">48dp</dimen>
     <dimen name="default_rev_margin">160dp</dimen>
@@ -19,5 +19,11 @@
     <dimen name="default_view_width">212dp</dimen>
     <dimen name="default_view_height">2dp</dimen>
     <dimen name="item_default_rev">100dp</dimen>
+    <dimen name="dimen36">36dp</dimen>
+    <dimen name="dimen50">50dp</dimen>
+    <dimen name="dimen2">2dp</dimen>
+    <dimen name="dimen26">26dp</dimen>
+    <dimen name="dimen18">18dp</dimen>
+    <dimen name="dimen360">360dp</dimen>
 
 </resources>

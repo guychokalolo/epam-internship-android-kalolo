@@ -2,8 +2,6 @@ package com.guychokalolo.epam_internship_android_kalolo
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.guychokalolo.epam_internship_android_kalolo.fragments.CategoryFoodFragment
-import com.guychokalolo.epam_internship_android_kalolo.fragments.MealDetailsFragment
 import com.guychokalolo.epam_internship_android_kalolo.fragments.MealListFragment
 
 
@@ -13,11 +11,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //inject the Fragment  into the activity
         supportFragmentManager
                 .beginTransaction()
                 .replace(R.id.fragment_container,MealListFragment())
-                .add(R.id.fragment_container, CategoryFoodFragment())
                 .commit()
     }
+
 }

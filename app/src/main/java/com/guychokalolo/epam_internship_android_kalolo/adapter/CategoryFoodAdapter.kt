@@ -1,7 +1,5 @@
 package com.guychokalolo.epam_internship_android_kalolo.adapter
 
-import android.content.Context
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,55 +7,53 @@ import android.widget.ImageView
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.guychokalolo.epam_internship_android_kalolo.CategoryImageModel
-import com.guychokalolo.epam_internship_android_kalolo.MainActivity
+import com.bumptech.glide.Glide
 import com.guychokalolo.epam_internship_android_kalolo.R
-import java.security.AccessController.getContext
+import com.guychokalolo.epam_internship_android_kalolo.`interface`.OnCategoryClickListener
+import com.guychokalolo.epam_internship_android_kalolo.network.foodentity.CategoryItem
 
-class CategoryFoodAdapter : RecyclerView.Adapter<CategoryFoodAdapter.MyViewHolder>()  {
+class CategoryFoodAdapter(private var categoryNameItems : OnCategoryClickListener) : RecyclerView.Adapter<CategoryFoodAdapter.CategoryViewHolder>(){
 
-    private val listImage : MutableList<CategoryImageModel> =  mutableListOf()
-    private var selectedItem = 0
+    private val categoryItems : MutableList<CategoryItem> =  mutableListOf()
 
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_category_food, parent, false)
-        return MyViewHolder(view)
+        return CategoryViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val context = holder.itemView.context
-        holder.bind(listImage[position])
-        // item selected background color changed
-        holder.cardViewContainer.setCardBackgroundColor(ContextCompat.getColor(context, R.color.colombia_blue))
-        if (selectedItem == position){
-            holder.cardViewContainer.setCardBackgroundColor(ContextCompat.getColor(context, R.color.salmon))
-        }
-
-        holder.itemView.setOnClickListener {
-            val previousItem = selectedItem
-            selectedItem = position
-            notifyItemChanged(previousItem)
-            notifyItemChanged(position)
-        }
+    override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
+        holder.bind(categoryItems[position], categoryNameItems)
     }
 
     override fun getItemCount(): Int {
-        return listImage.size
+        return categoryItems.size
     }
 
-    fun setListImage(list : List<CategoryImageModel>){
-        this.listImage.clear()
-        this.listImage.addAll(list)
+    fun setListImage(list: List<CategoryItem>){
+        this.categoryItems.clear()
+        this.categoryItems.addAll(list)
         notifyDataSetChanged()
     }
 
-    class MyViewHolder(view : View) : RecyclerView.ViewHolder(view){
-        val imageFood : ImageView? = view.findViewById(R.id.item_category_image)
-        val cardViewContainer : CardView = view.findViewById(R.id.cardView_container)
+    class CategoryViewHolder(view : View) : RecyclerView.ViewHolder(view){
+        private val imageFood : ImageView = view.findViewById(R.id.item_category_image)
+        private val cardViewContainer : CardView = view.findViewById(R.id.cardView_container)
 
-        fun bind(model:CategoryImageModel){
-            imageFood?.setImageResource(model.imageCategoryFood)
+        fun bind(categoryItems: CategoryItem, onCategoryClickListener: OnCategoryClickListener){
+            Glide.with(itemView.context).load(categoryItems.strCategoryThumb).into(imageFood)
+
+            itemView.setOnClickListener {
+                onCategoryClickListener.onCategoryClick(categoryItems)
+
+                cardViewContainer.isSelected = !cardViewContainer.isSelected
+                if(categoryItems.selectedCategory){
+
+                    cardViewContainer.setCardBackgroundColor(ContextCompat.getColor(itemView.context, R.color.salmon))
+                }else{
+                    cardViewContainer.setCardBackgroundColor(ContextCompat.getColor(itemView.context, R.color.colombia_blue))
+                }
+
+            }
         }
     }
 }
