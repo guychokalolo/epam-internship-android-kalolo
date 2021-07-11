@@ -14,6 +14,7 @@
         <!-- Customize your theme here. -->
     </style>
 
+
     <!-- My Customise theme-->
 
     <!-- create the default title component. -->
@@ -40,6 +41,8 @@
     <!-- create the Default title for Detail component. -->
     <style name="Default_TextStyle_Detail" parent="DefaultTextStyle">
         <item name="android:textSize">18sp</item>
+
+
     </style>
 
     <!-- create the Default title for Detail component and add fonts Roboto. -->
