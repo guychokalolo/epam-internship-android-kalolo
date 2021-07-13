@@ -19,9 +19,10 @@ import com.guychokalolo.epam_internship_android_kalolo.network.foodentity.Catego
 import com.guychokalolo.epam_internship_android_kalolo.network.foodentity.Meal
 import com.guychokalolo.epam_internship_android_kalolo.network.foodentity.MealItems
 import com.guychokalolo.epam_internship_android_kalolo.network.retrofitclient.FoodApi
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.core.*
+import io.reactivex.rxjava3.disposables.Disposable
+import io.reactivex.rxjava3.schedulers.Schedulers
 
 
 
@@ -48,36 +49,42 @@ class MealListFragment : Fragment(), OnMealClickListener , OnCategoryClickListen
         loadCategories()
     }
 
-    private fun loadCategories(){
-        FoodApi.retrofitService.getCategoryList().enqueue(object : Callback<Category>{
-            override fun onResponse(call: Call<Category>, response: Response<Category>) {
+    private fun loadCategories() {
+        FoodApi.retrofitService.getCategoryList()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(object : Observer<Category>{
+                    override fun onNext(category: Category) {
+                        categoryFoodAdapter.setListImage(category.categoryItems)
+                        listCategory = category.categoryItems
+                        loadMeal(listCategory[DEFAULT_CATEGORY_POSITION])
+                    }
 
-                response.body()?.categoryItems?.let { categoryFoodAdapter.setListImage(it)}
-                listCategory = response.body()!!.categoryItems
-                loadMeal(listCategory[DEFAULT_CATEGORY_POSITION])
-                categoryFoodAdapter.notifyDataSetChanged()
-                Log.e("Category", "Response loadCategories")
-            }
+                    override fun onError(e: Throwable) {
+                        Toast.makeText(view?.context, e.message, Toast.LENGTH_SHORT).show()
+                    }
 
-            override fun onFailure(call: Call<Category>, t: Throwable) {
-                Toast.makeText(view?.context, t.message, Toast.LENGTH_SHORT).show()
-                Log.e("Category", "onFailure")
-            }
-        })
+                    override fun onComplete() {
+                        // hide progress indicator.
+                    }
+                    override fun onSubscribe(d: Disposable) {
+                        // start showing progress indicator.
+                    }
+
+                })
     }
 
-    fun loadMeal(categoryName : CategoryItem){
-        val name = categoryName.strCategory
-        FoodApi.retrofitService.getMealList(name).enqueue(object : Callback<Meal> {
-            override fun onResponse(call: Call<Meal>, response: Response<Meal>) {
-                mealListAdapter.setMealItem(response.body()!!.mealItems)
-                Log.e("Category", "Response loadMeal")
-            }
+    private fun loadMeal(categoryName : CategoryItem) {
+        val categoryItemName = categoryName.strCategory
+        FoodApi.retrofitService.getMealList(categoryItemName).map {
+            it.mealItems
+        }
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(
+                {response -> mealListAdapter.setMealItem(response)},
+                {error -> Toast.makeText(view?.context, error.message, Toast.LENGTH_SHORT ).show()})
 
-            override fun onFailure(call: Call<Meal>, t: Throwable) {
-                Toast.makeText(view?.context, t.message, Toast.LENGTH_SHORT).show()
-            }
-        })
     }
 
     override fun onFoodItemClicked(mealItems: MealItems) {
@@ -91,6 +98,6 @@ class MealListFragment : Fragment(), OnMealClickListener , OnCategoryClickListen
     override fun onCategoryClick(item: CategoryItem) {
         loadMeal(item)
     }
-
-
 }
+
+
