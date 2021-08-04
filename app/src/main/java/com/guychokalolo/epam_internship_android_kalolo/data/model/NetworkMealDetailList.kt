@@ -1,8 +1,8 @@
-package com.guychokalolo.epam_internship_android_kalolo.network.foodentity
+package com.guychokalolo.epam_internship_android_kalolo.data.model
 
 import com.google.gson.annotations.SerializedName
 
-data class MealDetailList(
+data class NetworkMealDetailList(
         @SerializedName("idMeal")
         val id: Int,
 
