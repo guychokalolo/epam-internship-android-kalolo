@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="default_Margin">8dp</dimen>
-    <dimen name="item_margin">10dp</dimen>
-    <dimen name="item_top_margin">40dp</dimen>
+    <dimen name="dimen8">8dp</dimen>
+    <dimen name="dimen10">10dp</dimen>
+    <dimen name="dimen40">40dp</dimen>
     <dimen name="image_button_width">56dp</dimen>
     <dimen name="image_button_height">46dp</dimen>
     <dimen name="image_view_width">0dp</dimen>
     <dimen name="image_view_height">250dp</dimen>
-    <dimen name="round_corner_top">20dp</dimen>
+    <dimen name="dimen20">20dp</dimen>
     <dimen name="round_corner_bottom">0dp</dimen>
     <dimen name="item_food_card_dimension">64dp</dimen>
     <dimen name="dimen4">4dp</dimen>
-    <dimen name="item_food_radius">16dp</dimen>
+    <dimen name="dimen16">16dp</dimen>
     <dimen name="item_food_image_dimension">48dp</dimen>
     <dimen name="default_rev_margin">160dp</dimen>
     <dimen name="rev_margin">76dp</dimen>
-    <dimen name="text_margin">12dp</dimen>
+    <dimen name="dimen12">12dp</dimen>
     <dimen name="default_view_width">212dp</dimen>
     <dimen name="default_view_height">2dp</dimen>
     <dimen name="item_default_rev">100dp</dimen>
@@ -25,5 +25,11 @@
     <dimen name="dimen26">26dp</dimen>
     <dimen name="dimen18">18dp</dimen>
     <dimen name="dimen360">360dp</dimen>
+    <dimen name="dimen72">72</dimen>
+    <dimen name="dimen42">42</dimen>
+    <dimen name="dimen370">376</dimen>
+    <dimen name="dimen32">32</dimen>
+    <dimen name="dimen24">24</dimen>
+    <dimen name="dimen88">88</dimen>
 
 </resources>

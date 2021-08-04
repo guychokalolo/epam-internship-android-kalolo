@@ -6,17 +6,18 @@
     android:id="@+id/cardView_container"
     android:layout_width="@dimen/item_food_card_dimension"
     android:layout_height="@dimen/item_food_card_dimension"
-    android:layout_marginLeft="@dimen/default_Margin"
+    android:layout_marginLeft="@dimen/dimen8"
     android:layout_marginRight="@dimen/dimen4"
-    app:cardCornerRadius="@dimen/item_food_radius"
+    android:backgroundTint="@color/colombia_blue"
+    app:cardCornerRadius="@dimen/dimen16"
     >
 
         <ImageView
             android:id="@+id/item_category_image"
             android:layout_width="@dimen/item_food_image_dimension"
             android:layout_height="@dimen/item_food_image_dimension"
-            android:layout_marginTop="@dimen/default_Margin"
-            android:layout_marginLeft="@dimen/default_Margin"
+            android:layout_marginTop="@dimen/dimen8"
+            android:layout_marginLeft="@dimen/dimen8"
             app:srcCompat="@drawable/category_pizza1" />
 
 </androidx.cardview.widget.CardView>

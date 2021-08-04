@@ -25,6 +25,7 @@
     <color name="green">#4CAF50</color>
     <color name="myGray_black">#464E60</color>
     <color name="myGray2_black">#55617B</color>
+    <color name="filter_black">#383838</color>
 
 
 </resources>

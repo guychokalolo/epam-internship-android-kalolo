@@ -4,7 +4,7 @@
         android:color="@color/myColor_white"/>
 
     <corners
-        android:topLeftRadius="@dimen/round_corner_top"
-        android:topRightRadius="@dimen/round_corner_top"
+        android:topLeftRadius="@dimen/dimen20"
+        android:topRightRadius="@dimen/dimen20"
         />
 </shape>
