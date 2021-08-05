@@ -1,4 +1,4 @@
-package com.guychokalolo.epam_internship_android_kalolo.adapter
+package com.guychokalolo.epam_internship_android_kalolo.presentation.feature.main.view
 
 import android.graphics.Rect
 import android.view.View
