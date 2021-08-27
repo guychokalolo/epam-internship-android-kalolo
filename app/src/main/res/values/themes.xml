@@ -16,7 +16,7 @@
 
 
     <!-- My Customise theme-->
-
+    //////// For Fragment.xml MealList ////////
     <!-- create the default title component. -->
     <style name="DefaultTextStyle">
         <item name="android:textColor">@color/lightGray</item>
@@ -33,6 +33,7 @@
         <item name="android:textSize">24sp</item>
     </style>
 
+    //////// For Fragment.xml MealDetail ////////
     <!-- create the SubTitle for Detail component. -->
     <style name="SubtitleDetail">
         <item name="android:textColor">@color/darkGray</item>
@@ -74,5 +75,31 @@
         <item name="android:letterSpacing">0.02</item>
     </style>
 
+    //////// For Fragment.xml Filter ////////
+    <!-- Style for filterHead. -->
+    <style name="filterHead" parent="HeadLineTitleText">
+        <item name="android:letterSpacing">0.02</item>
+    </style>
+
+    <!-- Style for filterHead. -->
+    <style name="filterName" >
+        <item name="android:textSize">14sp</item>
+        <item name="android:letterSpacing">0.02</item>
+        <item name="android:textColor">@color/myColor_black</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+    </style>
+
+    <!-- Style for filterButtons. -->
+    <style name="FilterButtons" parent="SubheadTitleText">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/myGray_black</item>
+        <item name="android:letterSpacing">0.02</item>
+    </style>
+
+    <!-- Style for filterButton. -->
+    <style name="FilterButton" parent="SubheadTitleText">
+        <item name="android:textColor">@color/myColor_white</item>
+        <item name="android:letterSpacing">0.02</item>
+    </style>
 
 </resources>

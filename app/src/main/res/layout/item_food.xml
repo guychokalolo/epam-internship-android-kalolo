@@ -16,10 +16,10 @@
             android:id="@+id/cardView"
             android:layout_width="@dimen/item_default_rev"
             android:layout_height="@dimen/item_default_rev"
-            android:layout_marginStart="@dimen/text_margin"
-            android:layout_marginTop="@dimen/text_margin"
-            android:layout_marginBottom="@dimen/text_margin"
-            app:cardCornerRadius="@dimen/item_margin"
+            android:layout_marginStart="@dimen/dimen12"
+            android:layout_marginTop="@dimen/dimen12"
+            android:layout_marginBottom="@dimen/dimen12"
+            app:cardCornerRadius="@dimen/dimen10"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -45,7 +45,7 @@
             style="@style/SubtitleTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/text_margin"
+            android:layout_marginLeft="@dimen/dimen12"
             android:text="@string/item_food_name"
             app:layout_constraintBottom_toTopOf="@+id/view_separation"
             app:layout_constraintStart_toEndOf="@+id/cardView" />

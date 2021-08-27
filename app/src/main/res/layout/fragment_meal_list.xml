@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.MealListFragment">
+    tools:context=".presentation.feature.main.view.MealListFragment">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout_me"
@@ -16,10 +16,11 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/colombia_blue"
-            app:menu="@menu/home_menu"
+            app:menu="@menu/nav_menu"
             />
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -28,19 +29,21 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/item_food_card_dimension"
         android:layout_marginTop="@dimen/rev_margin"
-        android:layout_marginBottom="@dimen/round_corner_top"
+        android:layout_marginBottom="@dimen/dimen20"
         app:layout_constraintBottom_toTopOf="@+id/list_item_food_recyclerview"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="8dp" />
+        tools:layout_editor_absoluteX="8dp"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list_item_food_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/default_rev_margin"
-        android:layout_marginLeft="@dimen/default_Margin"
-        android:layout_marginRight="@dimen/default_Margin"
-        android:layout_marginBottom="@dimen/item_margin"
+        android:layout_marginLeft="@dimen/dimen8"
+        android:layout_marginRight="@dimen/dimen8"
+        android:layout_marginBottom="@dimen/dimen10"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

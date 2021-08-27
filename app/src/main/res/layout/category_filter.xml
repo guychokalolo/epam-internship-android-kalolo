@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    tools:context=".presentation.feature.main.view.FilterCategory">
+
+    <TextView
+        android:id="@+id/filterHead"
+        style="@style/filterHead"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dimen72"
+        android:layout_marginTop="@dimen/dimen42"
+        android:text="@string/filterHead"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dimen16"
+        android:layout_marginTop="@dimen/dimen40"
+        android:layout_marginRight="@dimen/dimen32"
+        android:layout_marginBottom="@dimen/dimen16"
+        android:background="@color/transparent"
+        android:src="@drawable/close"
+        app:layout_constraintBottom_toTopOf="@+id/filter_divider"
+        app:layout_constraintEnd_toStartOf="@+id/filterHead"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/filter_name"
+        style="@style/filterName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dimen24"
+        android:layout_marginTop="@dimen/dimen18"
+        android:text="@string/filterName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/filter_divider" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView_button1"
+        android:layout_width="118dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="@dimen/dimen8"
+        android:backgroundTint="@color/uniform_100"
+        app:cardCornerRadius="@dimen/dimen4"
+        app:layout_constraintStart_toStartOf="@+id/filter_name"
+        app:layout_constraintTop_toBottomOf="@+id/filter_name">
+
+        <TextView
+            android:id="@+id/filter_button1"
+            style="@style/FilterButtons"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/dimen8"
+            android:text="@string/filterButton1" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView_button2"
+        android:layout_width="118dp"
+        android:layout_height="26dp"
+        android:layout_marginLeft="@dimen/dimen10"
+        android:backgroundTint="@color/uniform_100"
+        app:cardCornerRadius="@dimen/dimen4"
+        app:layout_constraintStart_toEndOf="@+id/cardView_button1"
+        app:layout_constraintTop_toTopOf="@+id/cardView_button1">
+
+        <TextView
+            android:id="@+id/filter_button2"
+            style="@style/FilterButtons"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/dimen16"
+            android:text="@string/filterButton2" />
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        style="@style/FilterButton"
+        android:layout_width="320dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="@dimen/dimen24"
+        android:background="@drawable/filter_button1"
+        android:text="@string/filterButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <View
+        android:id="@+id/filter_divider"
+        android:layout_width="@dimen/dimen370"
+        android:layout_height="@dimen/dimen2"
+        android:layout_marginTop="@dimen/dimen18"
+        android:background="@color/uniform_70"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/filterHead" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
