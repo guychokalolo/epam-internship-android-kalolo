@@ -7,23 +7,19 @@ import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.Navigation
-import androidx.navigation.fragment.NavHostFragment.findNavController
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.guychokalolo.epam_internship_android_kalolo.FoodApp
 import com.guychokalolo.epam_internship_android_kalolo.R
 import com.guychokalolo.epam_internship_android_kalolo.data.repository.MealDetailRepositoryImpl
 import com.guychokalolo.epam_internship_android_kalolo.databinding.FragmentDetailScreenBinding
-import com.guychokalolo.epam_internship_android_kalolo.domain.userCase.GetMealDetailUseCase
+import com.guychokalolo.epam_internship_android_kalolo.domain.useCase.GetMealDetailUseCase
 import com.guychokalolo.epam_internship_android_kalolo.presentation.feature.main.viewModel.MealDetailViewModel
 import com.guychokalolo.epam_internship_android_kalolo.presentation.feature.main.viewModel.MealDetailViewModelFactory
-import io.reactivex.rxjava3.disposables.Disposable
 
 class MealDetailsFragment : Fragment() {
 
-    lateinit var binding: FragmentDetailScreenBinding
+    private lateinit var binding: FragmentDetailScreenBinding
     private val mealDetailViewModel: MealDetailViewModel by viewModels {
         MealDetailViewModelFactory(
             GetMealDetailUseCase(

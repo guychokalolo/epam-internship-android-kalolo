@@ -1,13 +1,13 @@
 package com.guychokalolo.epam_internship_android_kalolo.data.repository
 
 import androidx.room.rxjava3.EmptyResultSetException
+import com.guychokalolo.epam_internship_android_kalolo.asMealDetailEntity
 import com.guychokalolo.epam_internship_android_kalolo.data.db.dao.MealDetailDao
 import com.guychokalolo.epam_internship_android_kalolo.data.network.NetworkApi
 import com.guychokalolo.epam_internship_android_kalolo.domain.entity.MealDetailEntity
 import com.guychokalolo.epam_internship_android_kalolo.domain.repository.MealDetailRepository
 import com.guychokalolo.epam_internship_android_kalolo.asMealDetailModel
-import com.guychokalolo.epam_internship_android_kalolo.presentation.mapper.asMealDetailEntity
-import com.guychokalolo.epam_internship_android_kalolo.presentation.mapper.asMealDetailModelDb
+import com.guychokalolo.epam_internship_android_kalolo.asMealDetailModelDb
 import io.reactivex.rxjava3.core.Single
 
 class MealDetailRepositoryImpl(

@@ -4,5 +4,5 @@ import com.guychokalolo.epam_internship_android_kalolo.domain.entity.MealItemsEn
 import io.reactivex.rxjava3.core.*
 
 interface MealRepository {
-    fun getMealItemsList(categoryName : String) : Single<List<MealItemsEntity>>
+    fun getMealItemsList(categoryName: String): Single<List<MealItemsEntity>>
 }

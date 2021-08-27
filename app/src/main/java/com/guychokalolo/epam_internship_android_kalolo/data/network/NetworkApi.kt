@@ -9,11 +9,11 @@ import retrofit2.http.Query
 
 interface NetworkApi {
     @GET("categories.php")
-    fun getCategoryList() : Single<NetworkCategory>
+    fun getCategoryList(): Single<NetworkCategory>
 
     @GET("filter.php")
-    fun getMealList(@Query ("c")categoryItemName: String) : Single<NetworkMeal>
+    fun getMealList(@Query("c") categoryItemName: String): Single<NetworkMeal>
 
     @GET("lookup.php")
-    fun getMealDetailList(@Query ("i")mealId: Int) : Single<NetworkMealDetail>
+    fun getMealDetailList(@Query("i") mealId: Int): Single<NetworkMealDetail>
 }

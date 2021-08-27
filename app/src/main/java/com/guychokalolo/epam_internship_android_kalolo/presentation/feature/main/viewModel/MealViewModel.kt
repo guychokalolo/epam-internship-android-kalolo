@@ -3,7 +3,7 @@ package com.guychokalolo.epam_internship_android_kalolo.presentation.feature.mai
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.guychokalolo.epam_internship_android_kalolo.domain.userCase.GetMealUseCase
+import com.guychokalolo.epam_internship_android_kalolo.domain.useCase.GetMealUseCase
 import com.guychokalolo.epam_internship_android_kalolo.presentation.mapper.asMealUIModel
 import com.guychokalolo.epam_internship_android_kalolo.presentation.model.MealEntityUIModel
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers

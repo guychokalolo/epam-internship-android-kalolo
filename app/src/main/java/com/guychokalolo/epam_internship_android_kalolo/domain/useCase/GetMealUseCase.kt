@@ -1,7 +1,6 @@
-package com.guychokalolo.epam_internship_android_kalolo.domain.userCase
+package com.guychokalolo.epam_internship_android_kalolo.domain.useCase
 
 import com.guychokalolo.epam_internship_android_kalolo.domain.entity.MealItemsEntity
-import com.guychokalolo.epam_internship_android_kalolo.domain.repository.CategoryRepository
 import com.guychokalolo.epam_internship_android_kalolo.domain.repository.MealRepository
 import io.reactivex.rxjava3.core.*
 
